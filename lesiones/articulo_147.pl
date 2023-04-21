@@ -1,3 +1,5 @@
+:- dynamic(tiene_objeto/2).
+:- dynamic(es_agredido/2).
 %-----------------------------------------------------FACTS EXAMPLES
 
 % Predicado auxiliar para determinar si una persona posee un objeto en particular
@@ -21,21 +23,15 @@ es_objeto_agresion(_).
 % Si se quiere ser más específico, esta regla debe ser modificada
 requiere_tratamiento(_).
 
-% Predicado auxiliar para determinar la pena correspondiente al delito de lesiones
-% En este ejemplo, se supone que la pena es de prisión de 2 a 5 años y multa de 6 a 12 meses
-% Si se quiere ser más específico, esta regla debe ser modificada
-pena(_) :- write("La pena es de prision de 2 a 5 anos y multa de 6 a 12 meses.").
-
 % Predicado auxiliar para determinar si un objeto es una persona
 % En este ejemplo, se supone que sólo hay personas en el escenario
 % Si hay otros tipos de objetos en el escenario, esta regla debe ser modificada
 es_persona(_).
 
 % Predicado principal que determina si una persona ha cometido un delito de lesiones
-comete_delito_lesiones(Agresor, Agredido, Objeto) :-
+articulo_147_comete_delito_lesiones(Agresor, Agredido, Objeto) :-
     causa_lesion(Agresor, Objeto),
-    requiere_tratamiento(Agredido),
-    pena(Agresor).
+    requiere_tratamiento(Agredido).
 
 % Predicado auxiliar para determinar si una persona ha causado una lesión a otra persona
 causa_lesion(Agresor, Objeto) :-
